@@ -1,0 +1,91 @@
+﻿<Window x:Class="Практическая_8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Практическая_8"
+        mc:Ignorable="d"
+        Title="Практическая работа номер восемь" Height="450" Width="452">
+    <Grid Background="#FF9E8282">
+        <GroupBox HorizontalAlignment="Left" Height="232" Header="Добавление корабля в список" Margin="10,10,0,0" VerticalAlignment="Top" Width="227" BorderBrush="Black" BorderThickness="2,2,2,2">
+            <Grid>
+                <TextBox x:Name="TextBoxName" 
+            Background="#FF9E8282" 
+            HorizontalAlignment="Left" 
+            Margin="92,19,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="120" 
+            BorderThickness="0,0,0,1"
+            BorderBrush="Black" 
+            Height="27" 
+            ToolTip="Имя корабля в формате К-ХХХ, где ХХХ - трезхначное число"/>
+                <Label 
+            Content="Имя корабля" 
+            HorizontalAlignment="Left" 
+            Margin="10,20,0,0" 
+            VerticalAlignment="Top" />
+
+                <TextBox x:Name="TextBoxUnladen" 
+            Background="#FF9E8282" 
+            HorizontalAlignment="Left" 
+            Margin="152,63,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="53" 
+            BorderThickness="0,0,0,1"
+            BorderBrush="Black" 
+            Height="27"/>
+
+                <Label 
+            Content="Масса без груза, тонны" 
+            HorizontalAlignment="Left" 
+            Margin="9,64,0,0" 
+            VerticalAlignment="Top" />
+                <TextBox x:Name="TextBoxFull" 
+            Background="#FF9E8282" 
+            HorizontalAlignment="Left" 
+            Margin="152,107,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="53" 
+            BorderThickness="0,0,0,1"
+            BorderBrush="Black" 
+            Height="27"/>
+                <Label 
+            Content="Масса с грузом, тонны" 
+            HorizontalAlignment="Left" 
+            Margin="9,108,0,0" 
+            VerticalAlignment="Top" />
+                <Button x:Name="btnAdd" 
+            Content="Добавить в список" 
+            HorizontalAlignment="Left" 
+            Height="37" 
+            Margin="14,166,0,0" 
+            VerticalAlignment="Top" 
+            Width="191"
+            Background="#FF765A5A"
+            BorderBrush="Black" 
+                        Click="btnAdd_Click"/>
+            </Grid>
+
+        </GroupBox>
+        <ListBox x:Name="ListOfShip" Margin="242,25,108,192" Background="#FF9E8282" BorderBrush="Black" BorderThickness="2,2,2,2" SelectionMode="Multiple"/>
+        <ListBox x:Name="ListOfLoadCapacity" Margin="344,25,10,192" Background="#FF9E8282" BorderBrush="Black" BorderThickness="2,2,2,2" SelectionMode="Multiple"/>
+        <GroupBox  BorderBrush="Black" BorderThickness="2,2,2,2" HorizontalAlignment="Left" Height="106" Header="Действия с элементами списка" Margin="199,263,0,0" VerticalAlignment="Top" Width="225">
+            <Grid>
+                <Button x:Name="btnCompare" 
+            BorderBrush="Black" Background="#FF765A5A" Content="Сравнить" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="193" Height="25" Click="btnCompare_Click"/>
+                <Button x:Name="btnClone" BorderBrush="Black" Background="#FF765A5A" Content="Скопировать объект" HorizontalAlignment="Center" Margin="0,39,0,0" VerticalAlignment="Top" Width="193" Height="34" Click="clone_Click"/>
+            </Grid>
+        </GroupBox>
+        <Button x:Name="btnInfo"  Background="#FF765A5A"
+            BorderBrush="Black" Content="О программе" HorizontalAlignment="Left" Height="42" Margin="19,274,0,0" VerticalAlignment="Top" Width="166" Click="btnInfo_Click"/>
+        <Button x:Name="btnExit" Background="#FF765A5A"
+            BorderBrush="Black" Content="Bыход" HorizontalAlignment="Left" Height="38" Margin="19,321,0,0" VerticalAlignment="Top" Width="166" Click="btnExit_Click"/>
+        <Label Content="Имя корабля" HorizontalAlignment="Left" Margin="241,6,0,0" VerticalAlignment="Top"/>
+        <Label Content="Грузоподъемность" HorizontalAlignment="Left" Margin="323,6,0,0" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Window>
