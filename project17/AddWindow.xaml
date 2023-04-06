@@ -1,0 +1,26 @@
+﻿<Window x:Class="project17.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:project17"
+        mc:Ignorable="d"
+        Title="AddWindow" Height="450" Width="392">
+    <Grid>
+        <Label Content="Номер рейса" Margin="0,0,268,399"/>
+        <TextBox x:Name="NumberReic" Margin="0,35,268,369"/>
+        <Label Content="Пункт назначения" Margin="0,70,268,321"/>
+        <TextBox x:Name="PointArrive" Margin="0,113,268,291"/>
+        <Label Content="Время начала полета" Margin="0,148,246,255"/>
+        <TextBox x:Name="TimeStart" Margin="10,179,258,225"/>
+        <Label Content="Время прибытия" Margin="0,217,268,188"/>
+        <TextBox x:Name="TimeArrive" Margin="0,251,268,153"/>
+        <Label Content="Количество свободных мест" Margin="0,281,196,123"/>
+        <TextBox x:Name="CountMest" Margin="11,331,257,73"/>
+        <Label Content="Тип самолета" Margin="151,0,137,399"/>
+        <TextBox x:Name="TypeAirplan" Margin="151,35,117,369"/>
+        <Label Content="Вместимость" Margin="151,70,117,321"/>
+        <TextBox x:Name="Capacity" Margin="151,98,117,306"/>
+        <Button x:Name="AddBTN" Content="Add" Margin="168,164,50,123" Click="AddBTN_Click"/>
+    </Grid>
+</Window>

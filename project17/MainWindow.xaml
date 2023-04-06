@@ -1,0 +1,150 @@
+﻿<Window x:Class="project17.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:project17"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="875" Loaded="Window_Loaded">
+    <Window.Resources>
+        
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="160"/>
+            <Setter Property="Background" Value="#FFF3F3BC"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                        x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="9"
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter
+                            x:Name="contentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Focusable="False"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderThickness" Value="0.5" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MenuButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Background" Value="Khaki"/>
+            
+        </Style>
+
+        <Style x:Key="MenuStyle" TargetType="Menu">
+            <Setter Property="Background" Value="Khaki"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="150"/>
+        </Style>
+
+        <Style x:Key="GridStyle" TargetType="{x:Type Grid}">
+            <Setter Property="Background" Value="Khaki"/>
+        </Style>
+
+        <Style x:Key="GroupBoxStyle" TargetType="{x:Type GroupBox}">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="DataGridStyle" TargetType="DataGrid">
+            
+        </Style>
+
+    </Window.Resources>
+    <Grid Style="{StaticResource GridStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="207*"/>
+            <ColumnDefinition Width="193*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="98*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="58*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.ColumnSpan="2" Grid.Row="0" Style="{StaticResource MenuStyle}">
+            <Button Style="{StaticResource MenuButtonStyle}"  BorderThickness="0" Click="AddBTN_Click" ToolTip="Добавить запись">
+                <Image Source=".\icons\add.ico" />
+            </Button>
+            <Button Style="{StaticResource MenuButtonStyle}"   BorderThickness="0" Click="EditBTN_Click" ToolTip="Редактировать запись">
+                <Image Source=".\icons\edit.ico"/>
+            </Button>
+            <Button Style="{StaticResource MenuButtonStyle}"   BorderThickness="0" Click="DeleteBTN_Click" ToolTip="Удалить запись">
+                <Image Source=".\icons\delete.ico"/>
+            </Button>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="Find" Text="Найти" Foreground="Gray" FontWeight="Light" FontStyle="Italic" GotFocus="FindAndReplace_GotFocus" LostFocus="FindAndReplace_LostFocus" TextChanged="Find_TextChanged"/>
+            <Button  Style="{StaticResource MenuButtonStyle}"   BorderThickness="0" Click="FindBTN_Click" ToolTip="Поиск">
+                <Image Source=".\icons\search.ico"/>
+            </Button>
+            <Button Style="{StaticResource MenuButtonStyle}"   BorderThickness="0" Click="FilterBTN_Click" ToolTip="Фильтр...">
+                <Image Source=".\icons\filter.ico"/>
+            </Button>
+        </Menu>
+
+        <GroupBox Style="{StaticResource GroupBoxStyle}" Header="Рейсы аэрофлота" Margin="0,10,0,22" Grid.Row="1" Grid.ColumnSpan="2" >
+            <DataGrid Style="{StaticResource DataGridStyle}" x:Name="DataBase" IsReadOnly="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Номер рейса" Binding="{Binding Номер_рейса}"/>
+                    <DataGridTextColumn Header="Пункт назначения" Binding="{Binding Пункт_назначения}"/>
+                    <DataGridTemplateColumn Header="Время вылета">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Время_вылета, StringFormat=t}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Время прибытия">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Время_прибытия, StringFormat=t}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Кол-во свободных мест" Binding="{Binding Количество_свободных_мест}"/>
+                    <DataGridTextColumn Header="Самолёт" Binding="{Binding Тип_самолета}"/>
+                    <DataGridTextColumn Header="Вместимость" Binding="{Binding Вместимость}"/>
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Width="680" Grid.ColumnSpan="2" Grid.Row="2" >
+            <Button x:Name="AddBTN" Content="Добавить запись" Style="{StaticResource ButtonStyle}" Click="AddBTN_Click" Background="#FFF3F3BC"/>
+            <Separator Width="10" Background="White"/>
+            <Button x:Name="EditBTN" Content="Редактировать запись"  Style="{StaticResource ButtonStyle}" Click="EditBTN_Click"/>
+            <Separator Width="10" Background="White"/>
+            <Button x:Name="DeleteBTN" Content="Удалить запись"  Style="{StaticResource ButtonStyle}" Click="DeleteBTN_Click"/>
+            <Separator Width="10" Background="White"/>
+            <Button x:Name="UpdateBTN" Content="Обновить"  Style="{StaticResource ButtonStyle}" Click="UpdateBTN_Click"/>
+        </StackPanel>
+
+
+    </Grid>
+</Window>
