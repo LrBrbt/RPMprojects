@@ -1,0 +1,18 @@
+﻿<Window x:Class="ПракктическаяРабота17.FilterFind"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ПракктическаяРабота17"
+        mc:Ignorable="d"
+        Title="FilterFind" Height="168" Width="276">
+    <StackPanel>
+        <RadioButton x:Name="Number" Content="Номер рейса" Checked="Number_Checked"/>
+        <Separator Width="0"/>
+        <RadioButton x:Name="PointArrive" Content="Место прибытия" Checked="PointArrive_Checked"/>
+        <Separator Width="0"/>
+        <TextBox x:Name="filterTXT" Height="50"/>
+        <Separator Width="0"/>
+        <Button x:Name="filterBTN" Content="Применить фильтр" Click="filterBTN_Click"/>
+    </StackPanel>
+</Window>
