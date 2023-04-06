@@ -1,0 +1,16 @@
+﻿<Window x:Class="_11_практическая.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_11_практическая"
+        mc:Ignorable="d"
+        Title="Практическая номер одиннадцать" Height="450" Width="800">
+    <Grid>
+        <ListBox x:Name="ListOfString" HorizontalAlignment="Left" Height="315" Margin="77,0,0,0" VerticalAlignment="Center" Width="285"/>
+        <ListBox x:Name="ListOfString1" HorizontalAlignment="Left" Height="315" Margin="400,0,0,0" VerticalAlignment="Center" Width="285"/>
+        <Label Content="Первая часть" HorizontalAlignment="Left" Height="32" Margin="98,23,0,0" VerticalAlignment="Top" Width="197"/>
+        <Label Content="Вторая часть" HorizontalAlignment="Left" Height="32" Margin="400,23,0,0" VerticalAlignment="Top" Width="197"/>
+
+    </Grid>
+</Window>
