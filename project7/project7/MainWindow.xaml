@@ -1,0 +1,42 @@
+﻿<Window x:Class="project7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:project7"
+        mc:Ignorable="d"
+    Title="Практическая номер семь" Height="353" Width="395" ResizeMode="CanMinimize">
+    <Grid Background="#FFBCE4B9" Margin="0,0,0,-6">
+        <Menu Background="#FFBCE4B9" Margin="0,0,0,248">
+            <MenuItem Width="63" Header="Действия" Height="26" Cursor="Hand">
+                <MenuItem Header="Сохранить" />
+                <MenuItem Header="Открыть" />
+                <Separator/>
+                <MenuItem Header="Запустить" Click="Start_Click"/>
+                <MenuItem Header="Выход" Click="Exit"/>
+            </MenuItem>
+
+            <MenuItem Width="62" Header="Справка" Height="26" Cursor="Hand">
+                <MenuItem Header="О программе" Click="About"/>
+            </MenuItem>
+        </Menu>
+
+        <Label Content="Первое число" Margin="10,57,225,168" />
+        <Label Content="Второе число" Margin="10,103,237,143" />
+        <TextBox x:Name="FirstValue" Margin="101,58,196,263" Background="#FFBCE4B9" BorderBrush="Black" BorderThickness="0,0,0,1"/>
+        <TextBox x:Name="SecondValue" Margin="101,103,196,213" Background="#FFBCE4B9" BorderBrush="Black" BorderThickness="0,0,0,1"/>
+
+        <Label Content="Результат: " Margin="10,218,253,46"/>
+        <TextBox x:Name="Result" Margin="85,214,213,94" Background="#FFBCE4B9" BorderBrush="#FF000104" BorderThickness="0,0,0,1" IsReadOnly="True"/>
+
+        <Button x:Name="btnStart" Margin="233,214,25,65" Content="Рассчитать" Click="Start_Click" Background="#FFA3D89F"/>
+        <Button x:Name="btnAddPair" Margin="10,160,190,152" Content="Добавить пару" Click="AddPair_Click" Background="#FFA3D89F" />
+
+        <Button x:Name="btnIncrease" Margin="210,283,25,10" Content="Увеличить пару на 1" Click="Increase_Click" Background="#FFA3D89F" />
+
+        <Button x:Name="Decrease" Margin="10,283,213,10" Content="Уменьшить пару на 1" Click="Decrease_Click" Background="#FFA3D89F" />
+        <ListBox x:Name="ListWithPairs" Margin="233,58,25,152" SelectionMode="Multiple" Background="#FFA3D89F"/>
+
+
+    </Grid>
+</Window>
