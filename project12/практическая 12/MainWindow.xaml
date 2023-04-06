@@ -1,0 +1,234 @@
+﻿<Window x:Class="практическая_12.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:практическая_12"
+        mc:Ignorable="d" Loaded="Window_Loaded" 
+        Title="Практическая номер двенадцать" Height="475" Width="475" Icon="C:\Users\p0god\source\repos\практическая 12\icon.ico" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Background="#FFB4E8E1">
+    <Grid Background="#FFE1D1EE">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="363*"/>
+            <RowDefinition Height="28*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Background="#FFE1D1EE">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Сохранить"/>
+                <MenuItem Header="Открыть"/>
+                <Separator/>
+                <MenuItem Header="Закрыть" Click="btnExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Вид">
+                <MenuItem>
+                    <CheckBox Content="Панель инструментов" x:Name="IsPanelOfToolsEnable" IsChecked="{x:Null}" Unchecked="IsPanelOfToolsEnable_Unchecked" Checked="IsPanelOfToolsEnable_Checked"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="О программе" Click="btnInfo_Click"/>
+            </MenuItem>
+        </Menu>
+        <ToolBar x:Name="ToolPanel" HorizontalAlignment="Left"  Grid.Row="1" Background="#FFE1D1EE">
+            <Button x:Name="btnStart"  ToolTip="Запустить" >
+                
+                <Image Source="icons\start.ico"/>
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Расчет периметра и площади прямоугольника" Click="StartRectangle_Click"/>
+                        <MenuItem Header="Переворачивание числа" Click="btnRotate_Click"/>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+            <Separator/>
+            <Button x:Name="btnInfo" Click="btnInfo_Click" ToolTip="О программе">
+                <Image Source="icons\info.ico"/>
+            </Button>
+            <Button x:Name="btnExit" Click="btnExit_Click">
+                <Image Source="icons\exit.ico" ToolTip="Выход"/>
+            </Button>
+        </ToolBar>
+        <TabControl Grid.Row="2"   Background="#FFE1D1EE">
+            <TabItem Header="Расчёт периметра и площади прямоугольника" BorderBrush="Black">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="#FFE1D1EE" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Height="326" Background="#FFE1D1EE">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="79*"/>
+                        <RowDefinition Height="46*"/>
+                    </Grid.RowDefinitions>
+                    <GroupBox Header="Данные прямоугольника" Grid.Row="0" Margin="10,-4,250,10" BorderBrush="Black" BorderThickness="2">
+                        <GroupBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Выполнить" Click="StartRectangle_Click"/>
+                                <MenuItem Header="Очистить" Click="Clear_Click"/>
+                            </ContextMenu>
+                        </GroupBox.ContextMenu>
+                        <StackPanel>
+                            <Label Content="Длина прямоугольника: "/>
+                            <TextBox x:Name="Length" BorderThickness="0,0,0,1" BorderBrush="Black" Background="#FFE1D1EE" />
+                            <Label Content="Ширина прямоугольника: "/>
+                            <TextBox x:Name="Width" BorderThickness="0,0,0,1" BorderBrush="#FF000106" Background="#FFE1D1EE"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Действия" Grid.Row="0" Margin="234,-4,16,10" BorderBrush="Black" BorderThickness="2">
+                        <GroupBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Выполнить" Click="StartRectangle_Click"/>
+                            </ContextMenu>
+                        </GroupBox.ContextMenu>
+                        <StackPanel>
+                            <Button x:Name="StartPerimeter"  Content="Вычислить периметр и площадь" Click="StartRectangle_Click" BorderBrush="Black">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="White"/>
+                                        <GradientStop Color="#FFD0B0E9" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="9"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Separator Width="0"/>
+                            <Button x:Name="ClearLength" Content="Очистить поле 'Длина'" Click="ClearLength_Click" BorderBrush="Black">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFFAFAFA"/>
+                                        <GradientStop Color="#FFD0B0E9" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="9"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Separator Width="0"/>
+                            <Button x:Name="ClearWidth" Content="Очистить поле 'Ширина'" Click="ClearWidth_Click" BorderBrush="Black">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="White"/>
+                                        <GradientStop Color="#FFD0B0E9" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="9"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Separator Width="0"/>
+                            <Button x:Name="Clear" Content="Очистить всё" Click="Clear_Click" BorderBrush="Black">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="White"/>
+                                        <GradientStop Color="#FFD0B0E9" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="9"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Результат" Margin="0,206,0,0" HorizontalAlignment="Center" Grid.RowSpan="2"  BorderBrush="Black" BorderThickness="2">
+                        <StackPanel>
+                            <Label Content="Периметр прямоугольника" />
+                            <TextBox  IsReadOnly="True" x:Name="ResultPerimeter" Width="70" HorizontalAlignment="Left" Margin="10,0,0,0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="#FFE1D1EE"/>
+                            <Label Content="Площадь прямоугольника"/>
+                            <TextBox IsReadOnly="True" x:Name="ResultArea" Width="70" HorizontalAlignment="Left" Margin="10,0,0,0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="#FFE1D1EE"/>
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Переворачивание числа" BorderBrush="Black" >
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFE1D1EE" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="141*"/>
+                        <RowDefinition Height="206*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240*"/>
+                        <ColumnDefinition Width="229*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="Ввод числа" Grid.Row="0" Grid.Column="0"  BorderBrush="Black" BorderThickness="2">
+                        <GroupBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Выполнить" Click="btnRotate_Click"/>
+                            </ContextMenu>
+                        </GroupBox.ContextMenu>
+                        <StackPanel >
+                            <Label  Content="Число, которое нужно перевернуть: "/>
+                            <Separator Width="0"/>
+                            <TextBox  x:Name="tbValueToRotate" Width="70" HorizontalAlignment="Left" Margin="15,0,0,0" KeyDown="tbValueToRotate_KeyDown" Background="#FFE1D1EE" BorderThickness="0,0,0,1" BorderBrush="Black" />
+                            <Separator Width="0"/>
+                            <Button  x:Name="btnRotate" Margin="15,0,35,0" Content="Перевернуть число" Click="btnRotate_Click" BorderBrush="Black">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFFDFBFF"/>
+                                        <GradientStop Color="#FFD0B0E9" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="9"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Separator Width="0"/>
+                            <Button  x:Name="btnClear" Margin="15,0,35,0" Content="Очистить" Click="btnClear_Click" BorderBrush="Black">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFFFFEFF"/>
+                                        <GradientStop Color="#FFD0B0E9" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="9"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox x:Name="RotateValue" Header="Результат" Grid.Row="0" Grid.Column="1"  BorderBrush="Black" BorderThickness="2">
+                        <GroupBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Выполнить" Click="btnRotate_Click"/>
+                            </ContextMenu>
+                        </GroupBox.ContextMenu>
+                        <StackPanel >
+                            <Label  Content="Перевернутое число: "/>
+                            <Separator Width="0"/>
+                            <TextBox  x:Name="tbRotatedValue" Width="70" HorizontalAlignment="Left" Margin="15,0,0,0" Background="#FFE1D1EE" BorderThickness="0,0,0,1" BorderBrush="Black"/>
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+        <StatusBar Grid.Row="3"  Background="#FFE1D1EE" >
+            <TextBlock x:Name="tbTime" />
+            <Separator/>
+            <TextBlock x:Name="tbData" />
+            <Separator Width="1"/>
+            <TextBlock x:Name="tbTask" Text="Практическая работа 12. Вариант 2. Погодина В.О."/>
+        </StatusBar>
+
+
+    </Grid>
+</Window>
